@@ -6,8 +6,10 @@ public class TriggerRobotPosition : MonoBehaviour
 {
 
     public int triggerPointId;
+    public GameObject next;
+
     private void OnTriggerEnter(Collider other)
     {
-        EventManager.instance.RobotMovedTo(triggerPointId);
+        EventManager.instance.RobotAt(triggerPointId, next);
     }
 }

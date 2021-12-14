@@ -8,31 +8,31 @@ public class EventManager : MonoBehaviour
 
     public static EventManager instance;
     private bool started = false;
+    private GameObject _next; 
 
-    // Start is called before the first frame update
     void Awake()
     {
         instance = this;
     }
 
+    private void Start()
+    {
+        _next = GameObject.Find("Trigger 1");
+    }
+
     private void Update()
     {
+        // move first event to start function 
         if (!started)
         {
             started = true;
-            StartGame();
+            RobotAt(0, _next);
         }
     }
 
-    public event Action expStarted;
-    public void StartGame()
+    public event Action<int, GameObject> robotAt;
+    public void RobotAt(int id, GameObject next)
     {
-        expStarted?.Invoke();
-    }
-
-    public event Action<int> robotMovedTo;
-    public void RobotMovedTo(int id)
-    {
-        robotMovedTo?.Invoke(id);
+        robotAt?.Invoke(id, next);
     }
 }

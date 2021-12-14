@@ -6,32 +6,27 @@ using UnityEngine.UI;
 public class RobotController : MonoBehaviour
 {
 
-    public Transform target;
-    public float t;
-
     void Start()
     {
-        EventManager.instance.expStarted += MoveTo;
-        EventManager.instance.robotMovedTo += OnTriggerPoint;
+        EventManager.instance.robotAt += OnTriggerPoint;
     }
 
-    public void MoveTo()
+    public void MoveTo(Vector3 position)
     {
-        transform.position = target.position;
+        transform.position = position;
     }
 
-    public void OnTriggerPoint(int id)
+    public void OnTriggerPoint(int id, GameObject next)
     {
-        if (id == 1)
+        if (next != null)
         {
-            Debug.Log("Works");
+            MoveTo(next.transform.position);
         }
     }
 
     private void OnDestroy()
     {
-        EventManager.instance.expStarted -= MoveTo;
-        EventManager.instance.robotMovedTo -= OnTriggerPoint;
+        EventManager.instance.robotAt -= OnTriggerPoint;
     }
 
 }
