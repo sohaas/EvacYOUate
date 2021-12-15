@@ -16,12 +16,9 @@ public class RobotController : MonoBehaviour
         transform.position = position;
     }
 
-    public void OnTriggerPoint(int id, GameObject next)
+    public void OnTriggerPoint(int id)
     {
-        if (next != null)
-        {
-            MoveTo(next.transform.position);
-        }
+        // trigger pause and continue of robot path
     }
 
     private void OnDestroy()
