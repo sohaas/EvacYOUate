@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void OnTriggerPoint(int id, GameObject next)
+    private void OnTriggerPoint(int id)
     {
         // need this method to control when audios are supposed to play
         PlayNextAudio();
