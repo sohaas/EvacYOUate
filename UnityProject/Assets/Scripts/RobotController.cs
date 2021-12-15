@@ -16,7 +16,7 @@ public class RobotController : MonoBehaviour
         transform.position = position;
     }
 
-    public void OnTriggerPoint(int id, GameObject next)
+    private void OnTriggerPoint(int id, GameObject next)
     {
         if (next != null)
         {
