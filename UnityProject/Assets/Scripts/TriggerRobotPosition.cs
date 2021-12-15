@@ -19,6 +19,7 @@ public class TriggerRobotPosition : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Triggered");
         EventManager.instance.RobotAt(triggerPointId);
     }
 }

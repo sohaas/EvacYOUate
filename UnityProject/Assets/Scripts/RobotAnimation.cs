@@ -69,8 +69,8 @@ public class RobotAnimation : MonoBehaviour
             }
             else // we are not yet at the desired rotation and have to adjust the animation direction
             {
-                Debug.Log(fromY);
-                Debug.Log(toY);
+                // Debug.Log(fromY);
+                // Debug.Log(toY);
 
                 float clockwise = 0F;
                 float counterClockwise = 0f;

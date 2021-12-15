@@ -2,23 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Audios")]
+[CreateAssetMenu(menuName = "AudioData")]
 public class AudioData : ScriptableObject
 {
+
     [SerializeField]
     private List<AudioClip> _clips;
 
+    [System.NonSerialized]
     private int _lastPlayedIndex = -1;
 
     public AudioClip NextSong()
     {
         _lastPlayedIndex++;
+        Debug.Log(_lastPlayedIndex);
         if (_lastPlayedIndex < _clips.Count)
         {
             return _clips[_lastPlayedIndex];
         } 
         else
         {
+            Debug.Log("Returning Null");
             return null;
         }
     }
