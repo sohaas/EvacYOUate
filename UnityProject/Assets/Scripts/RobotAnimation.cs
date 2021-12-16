@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
+using UnityEditor;
 using UnityEngine;
 
 public class RobotAnimation : MonoBehaviour
@@ -35,13 +36,14 @@ public class RobotAnimation : MonoBehaviour
         _neededRotation = 0;
         _frameCounter = 0;
         _instructionRunning = false;
+
+        EventManager.instance.robotAt += Move;
+        EventManager.instance.robotAt += Pause;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //_instructionRunning;
-        
         // Do not update if we are currently in an instruction phase
         if (!_instructionRunning)
         {
@@ -117,5 +119,15 @@ public class RobotAnimation : MonoBehaviour
         }
 
         _frameCounter += 1;
+    }
+
+    void Move(int id)
+    {
+        _instructionRunning = true;
+    }
+
+    void Pause(int id)
+    {
+        _instructionRunning = false;
     }
 }
