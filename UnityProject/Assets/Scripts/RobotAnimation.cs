@@ -123,11 +123,11 @@ public class RobotAnimation : MonoBehaviour
 
     void Move()
     {
-        _instructionRunning = true;
+        _instructionRunning = false;
     }
 
     void Pause()
     {
-        _instructionRunning = false;
+        _instructionRunning = true;
     }
 }

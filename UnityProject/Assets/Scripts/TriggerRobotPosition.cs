@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TriggerRobotPosition : MonoBehaviour
 {
-
     public int triggerPointId;
 
     // TODO: Add ids/tags to player and robot and check whether id/tag == robot
@@ -12,5 +11,11 @@ public class TriggerRobotPosition : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         EventManager.instance.EnteredInteraction();
+        Invoke("AfterDelay", 5);
+    }
+
+    private void AfterDelay()
+    {
+        EventManager.instance.LeftInteraction();
     }
 }
