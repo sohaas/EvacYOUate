@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
+using UnityEditor;
 using UnityEngine;
 
 public class RobotAnimation : MonoBehaviour
@@ -11,13 +12,20 @@ public class RobotAnimation : MonoBehaviour
     public RuntimeAnimatorController anim_right;
     public RuntimeAnimatorController anim_left;
     
+    // Take care that we only move if currently no instructions are given
+    private bool _instructionRunning;
+    
     // Target loactions for path
     public Transform[] targets;
     private int _current; // To count the current location
     private float _neededRotation;
     private int _frameCounter;
     
-    // Speeds for movement // TODO: Could make this public
+    // Rotation direction information
+    private float _clockwise = 0F;
+    private float _counterClockwise = 0f;
+    
+    // Speeds for movement // TODO: Could make this public, adjust them to really match the wheel rotation speed
     private float _turningSpeed = 0.8F;
     private float _movementSpeed = 1F;
     
@@ -27,85 +35,99 @@ public class RobotAnimation : MonoBehaviour
         _current = 0;
         _neededRotation = 0;
         _frameCounter = 0;
+        _instructionRunning = false;
+
+        EventManager.instance.robotAt += Move;
+        EventManager.instance.robotAt += Pause;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Check for the next position
-        if (transform.position != targets[_current].position)
+        // Do not update if we are currently in an instruction phase
+        if (!_instructionRunning)
         {
-            // Determine which direction to rotate towards
-            Vector3 targetDirection = targets[_current].position - transform.position;
-            var rotation = Quaternion.LookRotation(targetDirection); // the target rotation
-
-            // The step size is equal to speed times frame time.
-            float singleStep = _turningSpeed * Time.deltaTime;
-
-            // Rotate the forward vector towards the target direction by one step
-            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
-            transform.rotation = Quaternion.LookRotation(newDirection);
-            
-            float fromY = transform.rotation.eulerAngles.y;
-            float toY = rotation.eulerAngles.y;
-
-            // Check whether we have roughly met the desired rotation
-            if (Mathf.Abs(fromY - toY) < 0.5F)
+            // Check for the next position
+            if (transform.position != targets[_current].position)
             {
-                // Adjust the rotation to the specifically desired rotation
-                transform.rotation = rotation;
-                
-                // Move forward
-                GetComponent<Animator>().runtimeAnimatorController = anim_forward;
-                transform.position = Vector3.MoveTowards(transform.position, targets[_current].position,
-                    _movementSpeed * Time.deltaTime);
+                // Determine which direction to rotate towards
+                Vector3 targetDirection = targets[_current].position - transform.position;
+                var rotation = Quaternion.LookRotation(targetDirection); // the target rotation
 
-                // Check if the position of robot and target are approximately equal
-                if (Vector3.Distance(transform.position, targets[_current].position) < 0.001F)
+                // The step size is equal to speed times frame time.
+                float singleStep = _turningSpeed * Time.deltaTime;
+
+                // Rotate the forward vector towards the target direction by one step
+                Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
+                transform.rotation = Quaternion.LookRotation(newDirection);
+                
+                float fromY = transform.rotation.eulerAngles.y;
+                float toY = rotation.eulerAngles.y;
+
+                // Check whether we have roughly met the desired rotation
+                if (Mathf.Abs(fromY - toY) < 0.5F)
                 {
-                    // set the robot to this position
-                    transform.position = targets[_current].position;
+                    // Adjust the rotation to the specifically desired rotation
+                    transform.rotation = rotation;
+                    
+                    // Move forward
+                    GetComponent<Animator>().runtimeAnimatorController = anim_forward;
+                    transform.position = Vector3.MoveTowards(transform.position, targets[_current].position,
+                        _movementSpeed * Time.deltaTime);
+
+                    // Check if the position of robot and target are approximately equal
+                    if (Vector3.Distance(transform.position, targets[_current].position) < 0.001F)
+                    {
+                        // set the robot to this position
+                        transform.position = targets[_current].position;
+                    }
+                }
+                else // we are not yet at the desired rotation and have to adjust the animation direction
+                {
+                    // First get the rotation in a clockwise and counterclockwise direction
+                    if (fromY <= toY)
+                    {
+                        _clockwise = toY - fromY;
+                        _counterClockwise = fromY + (360 - toY);
+                    }
+                    else
+                    {
+                        _clockwise = (360 - fromY) + toY;
+                        _counterClockwise = fromY - toY;
+                    }
+                    
+                    // Set the correct animation dependent on the rotation direction
+                    if (_clockwise <= _counterClockwise)
+                    {
+                        GetComponent<Animator>().runtimeAnimatorController = anim_right;
+                    }
+                    else
+                    {
+                        GetComponent<Animator>().runtimeAnimatorController = anim_left;
+                    }
                 }
             }
-            else // we are not yet at the desired rotation and have to adjust the animation direction
+            else
             {
-                // Debug.Log(fromY);
-                // Debug.Log(toY);
+                _current += 1;
+            }
 
-                float clockwise = 0F;
-                float counterClockwise = 0f;
-                
-                if (fromY <= toY)
-                {
-                    clockwise = toY - fromY;
-                    counterClockwise = fromY + (360 - toY);
-                }
-                else
-                {
-                    clockwise = (360 - fromY) + toY;
-                    counterClockwise = fromY - toY;
-                }
-
-                if (clockwise <= counterClockwise)
-                {
-                    GetComponent<Animator>().runtimeAnimatorController = anim_right;
-                }
-                else
-                {
-                    GetComponent<Animator>().runtimeAnimatorController = anim_left;
-                }
+            if (_current >= targets.Length)
+            {
+                UnityEditor.EditorApplication.isPlaying = false;
             }
         }
-        else
-        {
-            _current += 1;
-        }
 
-        if (_current >= targets.Length)
-        {
-            UnityEditor.EditorApplication.isPlaying = false;
-        }
-        
         _frameCounter += 1;
+    }
+
+    void Move(int id)
+    {
+        _instructionRunning = true;
+    }
+
+    void Pause(int id)
+    {
+        _instructionRunning = false;
     }
 }
