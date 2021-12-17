@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     private AudioSource _audioSource;
 
     // TODO: mode variable for conditions
+    // TODO: add onDestroyMethod to unsubscribe
 
     private void Awake()
     {
@@ -17,26 +18,23 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        EventManager.instance.robotAt += OnTriggerPoint;
+        EventManager.instance.enteredInteraction += OnTriggerPoint;
     }
 
     private void PlayNextAudio()
     {
         var clip = AudioData.NextSong();
-        Debug.Log("Tried getting clip");
 
         if (clip)
         {
-            Debug.Log(clip);
             _audioSource.clip = clip;
             _audioSource.Play();
         }
     }
 
-    private void OnTriggerPoint(int id)
+    private void OnTriggerPoint()
     {
         // need this method to control when audios are supposed to play
-        Debug.Log("Audio Manager: On Trigger Point");
         PlayNextAudio();
     }
 }

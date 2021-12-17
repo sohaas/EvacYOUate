@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "AudioData")]
 public class AudioData : ScriptableObject
 {
-
     [SerializeField]
     private List<AudioClip> _clips;
 
@@ -15,14 +14,13 @@ public class AudioData : ScriptableObject
     public AudioClip NextSong()
     {
         _lastPlayedIndex++;
-        Debug.Log(_lastPlayedIndex);
+
         if (_lastPlayedIndex < _clips.Count)
         {
             return _clips[_lastPlayedIndex];
         } 
         else
         {
-            Debug.Log("Returning Null");
             return null;
         }
     }

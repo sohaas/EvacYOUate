@@ -7,47 +7,30 @@ public class EventManager : MonoBehaviour
 {
 
     public static EventManager instance;
+    // TODO: move to experiment manager; hide in inspector
+    public bool interacting = false;
 
     void Awake()
     {
         instance = this;
     }
 
-    private void Start()
+    /*TODO: trigger in Experiment Manager*/
+    public event Action startedExperiment;
+    public void StartedExperiment()
     {
-        /**
-         * Trigger start of experiment here
-         * -> subscribe start robot path
-         * -> subscribe start timer
-         */
+        startedExperiment?.Invoke();
     }
 
-    /**
-     * TRIGGER ROBOT AT:
-     * 
-     * id == 1:
-     * play introduction
-     * maybe let the robot ask, whether the participant is ready to follow;
-     * can confirm with a button press -> triggers robot to move to trigger point 2
-     * 
-     * id == 2:
-     * play instruction 1: step over
-     * end of instructions triggers robot to go to trigger point 3
-     * 
-     * id == 3:
-     * wait for participant to step over the rubble and trigger the next step, maybe 
-     * turn towards the participant while waiting; the participant successfully stepping
-     * over the the rubble triggers the robot to move to trigger point 4; also triggers
-     * the robot to say something encouraging/approving?
-     * 
-     * id == 4: 
-     * play instruction 2: ducking below shelf
-     * 
-     */
-
-    public event Action<int> robotAt;
-    public void RobotAt(int id)
+    public event Action enteredInteraction;
+    public void EnteredInteraction()
     {
-        robotAt?.Invoke(id);
+        enteredInteraction?.Invoke();
+    }
+
+    public event Action leftInteraction;
+    public void LeftInteraction()
+    {
+        leftInteraction?.Invoke();
     }
 }
