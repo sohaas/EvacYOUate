@@ -21,6 +21,11 @@ public class AudioManager : MonoBehaviour
         EventManager.instance.enteredInteraction += OnTriggerPoint;
     }
 
+    void Update()
+    {
+
+    }
+
     private void PlayNextAudio()
     {
         var clip = AudioData.NextSong();
@@ -29,7 +34,13 @@ public class AudioManager : MonoBehaviour
         {
             _audioSource.clip = clip;
             _audioSource.Play();
+            Invoke("OnAudioPlayed", clip.length);
         }
+    }
+
+    private void OnAudioPlayed()
+    {
+        EventManager.instance.PlayedInteraction();
     }
 
     private void OnTriggerPoint()

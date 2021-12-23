@@ -37,8 +37,9 @@ public class RobotAnimation : MonoBehaviour
         _frameCounter = 0;
         _instructionRunning = false;
 
-        EventManager.instance.leftInteraction += Move;
         EventManager.instance.enteredInteraction += Pause;
+        EventManager.instance.playedInteraction += Move;
+        EventManager.instance.leftInteraction += Move;
     }
 
     // Update is called once per frame

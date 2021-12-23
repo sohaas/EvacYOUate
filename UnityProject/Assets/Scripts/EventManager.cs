@@ -28,6 +28,12 @@ public class EventManager : MonoBehaviour
         enteredInteraction?.Invoke();
     }
 
+    public event Action playedInteraction;
+    public void PlayedInteraction()
+    {
+        playedInteraction?.Invoke();
+    }
+
     public event Action leftInteraction;
     public void LeftInteraction()
     {

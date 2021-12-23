@@ -11,7 +11,7 @@ public class TriggerRobotPosition : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         EventManager.instance.EnteredInteraction();
-        Invoke("AfterDelay", 5);
+        // Invoke("AfterDelay", 5);
     }
 
     private void AfterDelay()
