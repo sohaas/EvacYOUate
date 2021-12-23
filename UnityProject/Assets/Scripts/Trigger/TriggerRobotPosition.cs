@@ -10,12 +10,9 @@ public class TriggerRobotPosition : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        EventManager.instance.EnteredInteraction();
-        // Invoke("AfterDelay", 5);
-    }
-
-    private void AfterDelay()
-    {
-        EventManager.instance.LeftInteraction();
+        if (other.gameObject.tag == "Robot")
+        {
+            EventManager.instance.EnteredInteraction();
+        }
     }
 }

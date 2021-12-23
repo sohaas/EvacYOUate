@@ -39,4 +39,10 @@ public class EventManager : MonoBehaviour
     {
         leftInteraction?.Invoke();
     }
+
+    public event Action<int, int> complied;
+    public void Complied(int id, int degree)
+    {
+        complied?.Invoke(id, degree);
+    }
 }
