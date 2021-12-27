@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerRobotPosition : MonoBehaviour
+public class RobotTrigger : MonoBehaviour
 {
+    public bool audio;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Robot")
         {
-            EventManager.instance.EnteredInteraction();
+            EventManager.instance.EnteredStopPoint(audio);
         }
     }
 }

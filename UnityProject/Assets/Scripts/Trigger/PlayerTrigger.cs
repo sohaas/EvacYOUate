@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerPlayerPosition : MonoBehaviour
+public class PlayerTrigger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            EventManager.instance.LeftInteraction();
+            EventManager.instance.CompletedInteraction();
         }
     }
 }

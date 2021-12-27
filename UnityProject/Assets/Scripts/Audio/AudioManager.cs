@@ -5,7 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager instance;
+
     public AudioData AudioData;
+
     private AudioSource _audioSource;
 
     // TODO: mode variable for conditions
@@ -13,12 +16,13 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
         _audioSource = GetComponent<AudioSource>();
     }
 
     void Start()
     {
-        EventManager.instance.enteredInteraction += OnTriggerPoint;
+        EventManager.instance.enteredStopPoint += OnStopEnter;
     }
 
     void Update()
@@ -28,6 +32,7 @@ public class AudioManager : MonoBehaviour
 
     private void PlayNextAudio()
     {
+
         var clip = AudioData.NextSong();
 
         if (clip)
@@ -36,6 +41,7 @@ public class AudioManager : MonoBehaviour
             _audioSource.Play();
             Invoke("OnAudioPlayed", clip.length);
         }
+ 
     }
 
     private void OnAudioPlayed()
@@ -43,9 +49,11 @@ public class AudioManager : MonoBehaviour
         EventManager.instance.PlayedInteraction();
     }
 
-    private void OnTriggerPoint()
+    private void OnStopEnter(bool audio)
     {
-        // need this method to control when audios are supposed to play
-        PlayNextAudio();
+        if (audio)
+        {
+            PlayNextAudio();
+        }
     }
 }

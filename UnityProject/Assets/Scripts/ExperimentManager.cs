@@ -27,6 +27,13 @@ public class ExperimentManager : MonoBehaviour
     private const int N_INSTRUCTIONS = 4;
     private int[] _compliance = new int[N_INSTRUCTIONS];
 
+    public static ExperimentManager instance;
+
+    void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         EventManager.instance.complied += UpdateCompliance;

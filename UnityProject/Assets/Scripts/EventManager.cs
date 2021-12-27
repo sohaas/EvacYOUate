@@ -7,8 +7,6 @@ public class EventManager : MonoBehaviour
 {
 
     public static EventManager instance;
-    // TODO: move to experiment manager; hide in inspector
-    public bool interacting = false;
 
     void Awake()
     {
@@ -22,10 +20,10 @@ public class EventManager : MonoBehaviour
         startedExperiment?.Invoke();
     }
 
-    public event Action enteredInteraction;
-    public void EnteredInteraction()
+    public event Action <bool> enteredStopPoint;
+    public void EnteredStopPoint(bool audio)
     {
-        enteredInteraction?.Invoke();
+        enteredStopPoint?.Invoke(audio);
     }
 
     public event Action playedInteraction;
@@ -34,10 +32,10 @@ public class EventManager : MonoBehaviour
         playedInteraction?.Invoke();
     }
 
-    public event Action leftInteraction;
-    public void LeftInteraction()
+    public event Action completedInteraction;
+    public void CompletedInteraction()
     {
-        leftInteraction?.Invoke();
+        completedInteraction?.Invoke();
     }
 
     public event Action<int, int> complied;

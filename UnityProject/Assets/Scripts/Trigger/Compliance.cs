@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerCompliance : MonoBehaviour
+public class Compliance : MonoBehaviour
 {
     public int id;
     public int degree;
