@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerCompliance : MonoBehaviour
+public class TriggerPlayerPosition : MonoBehaviour
 {
-    public int id;
-    public int degree;
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            EventManager.instance.Complied(id, degree);
+            EventManager.instance.LeftInteraction();
         }
     }
 }
