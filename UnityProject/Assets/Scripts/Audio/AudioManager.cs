@@ -7,7 +7,8 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
-    public AudioData AudioData;
+    // TODO: hide in inspector and assign at the start of the experiment
+    public AudioData instructions;
 
     private AudioSource _audioSource;
 
@@ -33,7 +34,7 @@ public class AudioManager : MonoBehaviour
     private void PlayNextAudio()
     {
 
-        var clip = AudioData.NextSong();
+        var clip = instructions.NextClip();
 
         if (clip)
         {

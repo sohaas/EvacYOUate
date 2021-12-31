@@ -11,7 +11,7 @@ public class AudioData : ScriptableObject
     [System.NonSerialized]
     private int _lastPlayedIndex = -1;
 
-    public AudioClip NextSong()
+    public AudioClip NextClip()
     {
         _lastPlayedIndex++;
 
