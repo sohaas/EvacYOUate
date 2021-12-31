@@ -11,18 +11,32 @@ Now go to https://github.com/sohaas/EvacYOUate, select Code and Open with GitHub
 In Unity Hub, go to Projects and open the project from disk by selecting the UnityProject folder (path to the git repository).
 Click to open the projet in Unity Hub.
 
+## Player Interaction
+* Right hand: Continuous/snap turn
+* Left hand: Continuous movement, teleportation
+
 ## Testing the Project without HMD
 To test the project click the play button. Now, the following inputs can be given via keyboard:
-* Right mouse key pressed + move the mouse to move the camera (up / down / left / right)
-* Right mouse key pressed + scroll mouse wheel to move the camera (forward / backward)
-* Space pressed + move the mouse to move the right hand (up / down / left / right)
-* Space pressed + scroll mouse wheel to move the right hand (forward / backward)
-* Shift pressed + move the mouse to move the left hand (up / down / left / right)
-* Shift pressed + scroll mouse wheel to move the left hand (forward / backward)
-* Can also be done simultaneously:
-  press right mouse key + space + shift and move the mouse or scroll the mouse wheel to move all three at the same time
-* Control + space pressed and move mouse to tilt the right hand (same for left hand, just shift instead of space)
-* Space pressed + ray points at XR grab interactable object (ray color changes from red to white) + press G key to grab object
-  (same for left hand, just shift instead of space)
-* Space pressed + ray points at Teleportation Anchor/Area (ray color changes from red to white) + press G key to teleport
-  (same for left hand, just shift instead of space)
+
+1. Camera:
+* Up/down/left/right movement: Right mouse key pressed + move the mouse
+* Forward/backward movement: Right mouse key pressed + scroll the mouse wheel
+
+2. Right hand:
+* Up/down/left/right movement: Space pressed + move the mouse
+* Forward/backward movement: Space pressed + scroll the mouse wheel
+* Tilt: Space + control pressed and move the mouse
+* Grab object: Space pressed + ray points at XR grab interactable object (ray color changes from red to white) + press G key (will probably not be used in the project)
+* Continuous turn: Space pressed + press A/D key to turn left/right
+
+3. Left hand:
+* Up/down/left/right movement: Shift pressed + move the mouse
+* Forward/backward movement: Shift pressed + scroll the mouse wheel
+* Tilt: Shift + control pressed and move the mouse
+* Grab object: Shift pressed + ray points at XR grab interactable object (ray color changes from red to white) + press G key (will probably not be used in the project)
+* Teleport: Shift pressed + ray points at Teleportation Anchor/Area (ray color changes from red to white) + press G key
+* Continuous movement: Shift pressed + press W/A/S/D key to move forward/left/backward/right
+
+4. Combination:
+* Move camera and both hands simultaneously:
+  Right mouse key + space + shift pressed and move the mouse or scroll the mouse wheel
