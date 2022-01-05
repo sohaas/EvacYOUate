@@ -47,9 +47,13 @@ public class RobotAnimation : MonoBehaviour
         // Do not update if we are currently in an instruction phase
         if (!_instructionRunning)
         {
+            // The animation of specific movements start
+            GetComponent<Animator>().enabled = true;
+            
             // Check for the next position
             if (transform.position != targets[_current].position)
             {
+                
                 // Determine which direction to rotate towards
                 Vector3 targetDirection = targets[_current].position - transform.position;
                 var rotation = Quaternion.LookRotation(targetDirection); // the target rotation
@@ -116,6 +120,10 @@ public class RobotAnimation : MonoBehaviour
             {
                 UnityEditor.EditorApplication.isPlaying = false;
             }
+        }
+        else
+        {
+            GetComponent<Animator>().enabled = false;
         }
 
         _frameCounter += 1;
