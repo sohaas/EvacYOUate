@@ -26,8 +26,8 @@ public class RobotAnimation : MonoBehaviour
     private float _counterClockwise = 0f;
     
     // Speeds for movement // TODO: Could make this public, adjust them to really match the wheel rotation speed
-    private float _turningSpeed = 0.8F;
-    private float _movementSpeed = 1F;
+    public float _turningSpeed = 0.4F;
+    public float _movementSpeed = 0.1F;
     
     // Start is called before the first frame update
     void Start()
