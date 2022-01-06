@@ -26,8 +26,8 @@ public class RobotAnimation : MonoBehaviour
     private float _counterClockwise = 0f;
     
     // Speeds for movement // TODO: Could make this public, adjust them to really match the wheel rotation speed
-    private float _turningSpeed = 0.8F;
-    private float _movementSpeed = 1F;
+    public float _turningSpeed = 0.4F;
+    public float _movementSpeed = 0.1F;
     
     // Start is called before the first frame update
     void Start()
@@ -48,9 +48,13 @@ public class RobotAnimation : MonoBehaviour
         // Do not update if we are currently in an instruction phase
         if (!_instructionRunning)
         {
+            // The animation of specific movements start
+            GetComponent<Animator>().enabled = true;
+            
             // Check for the next position
             if (transform.position != targets[_current].position)
             {
+                
                 // Determine which direction to rotate towards
                 Vector3 targetDirection = targets[_current].position - transform.position;
                 var rotation = Quaternion.LookRotation(targetDirection); // the target rotation
@@ -117,6 +121,10 @@ public class RobotAnimation : MonoBehaviour
             {
                 UnityEditor.EditorApplication.isPlaying = false;
             }
+        }
+        else
+        {
+            GetComponent<Animator>().enabled = false;
         }
 
         _frameCounter += 1;
