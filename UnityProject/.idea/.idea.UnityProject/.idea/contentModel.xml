@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Johanna\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Johanna\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_UnityProject.-1097542141.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Johanna\Documents\GitHub\EvacYOUate\UnityProject" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="Audio" t="Include">
+            <e p="AudioData.cs" t="Include" />
+            <e p="AudioManager.cs" t="Include" />
+          </e>
+          <e p="ConditionData.cs" t="Include" />
+          <e p="EventManager.cs" t="Include" />
+          <e p="ExperimentManager.cs" t="Include" />
+          <e p="RobotAnimation.cs" t="Include" />
+          <e p="Timer.cs" t="Include" />
+          <e p="Trigger" t="Include">
+            <e p="Compliance.cs" t="Include" />
+            <e p="PlayerTrigger.cs" t="Include" />
+            <e p="RobotTrigger.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="UnityProject.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>

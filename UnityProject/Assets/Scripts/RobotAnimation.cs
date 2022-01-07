@@ -26,8 +26,8 @@ public class RobotAnimation : MonoBehaviour
     private float _counterClockwise = 0f;
     
     // Speeds for movement // TODO: Could make this public, adjust them to really match the wheel rotation speed
-    private float _turningSpeed = 0.8F;
-    private float _movementSpeed = 1F;
+    public float _turningSpeed = 0.3F;
+    public float _movementSpeed = 0.4F;
     
     // Start is called before the first frame update
     void Start()
@@ -48,6 +48,9 @@ public class RobotAnimation : MonoBehaviour
         // Do not update if we are currently in an instruction phase
         if (!_instructionRunning)
         {
+            // Enable animations
+            GetComponent<Animator>().enabled = true;
+            
             // Check for the next position
             if (transform.position != targets[_current].position)
             {
@@ -117,6 +120,11 @@ public class RobotAnimation : MonoBehaviour
             {
                 UnityEditor.EditorApplication.isPlaying = false;
             }
+        }
+        else
+        {
+            // no animation during an instruction phase
+            GetComponent<Animator>().enabled = false;
         }
 
         _frameCounter += 1;
