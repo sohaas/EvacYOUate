@@ -14,6 +14,7 @@
           <e p="ConditionData.cs" t="Include" />
           <e p="EventManager.cs" t="Include" />
           <e p="ExperimentManager.cs" t="Include" />
+          <e p="LightRotation.cs" t="Include" />
           <e p="RobotAnimation.cs" t="Include" />
           <e p="Timer.cs" t="Include" />
           <e p="Trigger" t="Include">
