@@ -7,6 +7,7 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
+          <e p="AdjustRobotPosition.cs" t="Include" />
           <e p="Audio" t="Include">
             <e p="AudioData.cs" t="Include" />
             <e p="AudioManager.cs" t="Include" />
