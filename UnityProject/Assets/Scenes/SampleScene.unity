@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.48720163, g: 0.5348, b: 0.5808315, a: 1}
+  m_IndirectSpecularColor: {r: 0.48458195, g: 0.5300688, b: 0.575267, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -78641,8 +78641,8 @@ MonoBehaviour:
   - {fileID: 694457933}
   - {fileID: 239958466}
   - {fileID: 515611803}
-  _turningSpeed: 0.3
-  _movementSpeed: 0.4
+  _turningSpeed: 0.7
+  _movementSpeed: 1
 --- !u!95 &5352022554093575268
 Animator:
   serializedVersion: 3
