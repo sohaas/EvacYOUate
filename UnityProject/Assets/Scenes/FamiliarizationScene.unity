@@ -5253,14 +5253,14 @@ MonoBehaviour:
 
 
     For this, you will be back
-    at the house, just after a huge erthquake occured. The house is very unstable
+    at the house, just after a huge erthquake occured. The building is rather unstable
     and there is only very limited time until the earth will shake again and the
-    building will most likely collapse. You need to evacuate as fast as possible!
-    But also be aware of the dangerous environment, and avoid the danger of getting
-    hurt.
+    walls will most likely collapse. You need to evacuate as fast as possible! But
+    also be aware of the dangerous environment and try to avoid getting hurt.
 
 
-    If you are ready to start, press button xy.'
+    If
+    you are ready to start, press button xy.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
