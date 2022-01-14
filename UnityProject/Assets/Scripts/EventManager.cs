@@ -43,4 +43,10 @@ public class EventManager : MonoBehaviour
     {
         complied?.Invoke(id, degree);
     }
+
+    public event Action<int> exited;
+    public void Exited(int exitNr)
+    {
+        exited?.Invoke(exitNr);
+    }
 }
