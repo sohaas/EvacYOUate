@@ -49,4 +49,10 @@ public class EventManager : MonoBehaviour
     {
         exited?.Invoke(exitNr);
     }
+
+    public event Action timeIsUp;
+    public void TimeIsUp()
+    {
+        timeIsUp?.Invoke();
+    }
 }
