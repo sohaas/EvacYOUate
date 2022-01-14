@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: instructions_ma
   m_EditorClassIdentifier: 
   _clips:
-  - {fileID: 8300000, guid: 24200bb24618054459a54dae54cb090d, type: 3}
+  - {fileID: 8300000, guid: b1baed2bc16c8184499fed6c65255561, type: 3}
   - {fileID: 8300000, guid: c2c302c9084a025428e06ca724c76e15, type: 3}
   - {fileID: 8300000, guid: bcad767e7b7c864409f658a3f44646d4, type: 3}
   - {fileID: 8300000, guid: 379586ead178d5a469629938c86900ab, type: 3}

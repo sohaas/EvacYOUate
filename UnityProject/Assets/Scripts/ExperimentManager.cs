@@ -28,7 +28,7 @@ public class ExperimentManager : MonoBehaviour
 
     // TODO: Outsource to utils file 
     public const int N_INSTRUCTIONS = 4;
-    public const int N_PARTICIPANTS = 5;
+    public const int N_PARTICIPANTS = 50;
     private const string PATH = "./Assets/Serialized/conditions.bin";
 
     public int[] conditionCounter = new int[4];
