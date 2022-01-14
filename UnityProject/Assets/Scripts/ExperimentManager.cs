@@ -39,6 +39,8 @@ public class ExperimentManager : MonoBehaviour
     private int[] _compliance = new int[N_INSTRUCTIONS];
     private int _condition;
 
+    [SerializeField] Timer timer;
+
     void Awake()
     {
         instance = this;
@@ -51,6 +53,7 @@ public class ExperimentManager : MonoBehaviour
         LoadConditions();
         participant++;
         GetCondition();
+        timer.SetDuration(300).Begin();
     }
 
 
