@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExperimentManager : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class ExperimentManager : MonoBehaviour
     void Start()
     {
         EventManager.instance.complied += UpdateCompliance;
+        EventManager.instance.exited += LoadEndScene;
 
         LoadConditions();
         participant++;
@@ -129,9 +131,16 @@ public class ExperimentManager : MonoBehaviour
         }
     }
 
+    void LoadEndScene(int sceneNr)
+    {
+        SceneManager.LoadScene(sceneNr, LoadSceneMode.Single);
+    }
+
     void OnDestroy()
     {
         EventManager.instance.complied -= UpdateCompliance;
+        EventManager.instance.exited -= LoadEndScene;
+
         SaveConditions();
     }
 
