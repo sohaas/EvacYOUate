@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: New Unity Project (5)
+  productName: EvacYOUate
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -133,7 +133,9 @@ PlayerSettings:
   bundleVersion: 0.1
   preloadedAssets:
   - {fileID: -2631920482369896706, guid: 3ac94c1498017f047abc64a1378178de, type: 2}
+  - {fileID: 11400000, guid: 923098b2b212e1d42a88e5be86f450a5, type: 2}
   - {fileID: -5528313207425767232, guid: f2846c0220339df45a4aef495501a190, type: 2}
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
