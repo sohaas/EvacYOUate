@@ -15,9 +15,7 @@ MonoBehaviour:
   m_RequiresSettingsUpdate: 0
   m_AutomaticLoading: 0
   m_AutomaticRunning: 0
-  m_Loaders:
-  - {fileID: 11400000, guid: 9fca2cd3cfc32244ba4767df0f267c21, type: 2}
-  - {fileID: 11400000, guid: a9fc035ff9b02ad4ebebd6210df2c537, type: 2}
+  m_Loaders: []
 --- !u!114 &-5528313207425767232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,36 +30,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LoaderManagerInstance: {fileID: -8002445251593971027}
   m_InitManagerOnStart: 1
---- !u!114 &-4298327366450372275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: WSA Settings
-  m_EditorClassIdentifier: Unity.XR.Management:UnityEngine.XR.Management:XRGeneralSettings
-  m_LoaderManagerInstance: {fileID: -1217348617576074164}
-  m_InitManagerOnStart: 1
---- !u!114 &-1217348617576074164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: WSA Providers
-  m_EditorClassIdentifier: Unity.XR.Management:UnityEngine.XR.Management:XRManagerSettings
-  m_RequiresSettingsUpdate: 0
-  m_AutomaticLoading: 0
-  m_AutomaticRunning: 0
-  m_Loaders: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,7 +42,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2dc886499c26824283350fa532d087d, type: 3}
   m_Name: XRGeneralSettings
   m_EditorClassIdentifier: 
-  Keys: 010000000e000000
+  Keys: 01000000
   Values:
   - {fileID: -5528313207425767232}
-  - {fileID: -4298327366450372275}
