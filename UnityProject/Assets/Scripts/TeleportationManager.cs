@@ -58,7 +58,7 @@ public class TeleportationManager : MonoBehaviour
 
     private void OnTeleportActivate(InputAction.CallbackContext context)
     {
-        if (GetComponent<TeleportationProvider>().enabled == false)
+        if (provider.enabled == false)
             return;
         
         rayInteractor.enabled = true;
