@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -9,6 +10,8 @@ public class AudioManager : MonoBehaviour
 
     // TODO: hide in inspector and assign at the start of the experiment
     public AudioData instructions;
+    public Light speakingIndicator;
+    public Light[] beaconLights;
 
     private AudioSource _audioSource;
 
@@ -24,6 +27,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         EventManager.instance.enteredStopPoint += OnStopEnter;
+        speakingIndicator.enabled = false; // no speaking indication in the beginning
     }
 
     void Update()
@@ -38,6 +42,11 @@ public class AudioManager : MonoBehaviour
 
         if (clip)
         {
+            speakingIndicator.enabled = true; // indicate speaking with a light
+            foreach (Light l in beaconLights)
+            {
+                l.enabled = false;
+            }
             _audioSource.clip = clip;
             _audioSource.Play();
             Invoke("OnAudioPlayed", clip.length);
@@ -47,6 +56,11 @@ public class AudioManager : MonoBehaviour
 
     private void OnAudioPlayed()
     {
+        speakingIndicator.enabled = false; // disable speaking indication
+        foreach (Light l in beaconLights)
+        {
+            l.enabled = true;
+        }
         EventManager.instance.PlayedInteraction();
     }
 
