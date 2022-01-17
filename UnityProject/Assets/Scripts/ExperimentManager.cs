@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExperimentManager : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class ExperimentManager : MonoBehaviour
 
     // TODO: Outsource to utils file 
     public const int N_INSTRUCTIONS = 4;
-    public const int N_PARTICIPANTS = 5;
+    public const int N_PARTICIPANTS = 50;
     private const string PATH = "./Assets/Serialized/conditions.bin";
 
     public int[] conditionCounter = new int[4];
@@ -39,6 +40,8 @@ public class ExperimentManager : MonoBehaviour
     private int[] _compliance = new int[N_INSTRUCTIONS];
     private int _condition;
 
+    [SerializeField] Timer timer;
+
     void Awake()
     {
         instance = this;
@@ -47,10 +50,12 @@ public class ExperimentManager : MonoBehaviour
     void Start()
     {
         EventManager.instance.complied += UpdateCompliance;
+        EventManager.instance.exited += LoadEndScene;
 
         LoadConditions();
         participant++;
         GetCondition();
+        timer.SetDuration(300).Begin();
     }
 
 
@@ -126,9 +131,16 @@ public class ExperimentManager : MonoBehaviour
         }
     }
 
+    void LoadEndScene(int sceneNr)
+    {
+        SceneManager.LoadScene(sceneNr, LoadSceneMode.Single);
+    }
+
     void OnDestroy()
     {
         EventManager.instance.complied -= UpdateCompliance;
+        EventManager.instance.exited -= LoadEndScene;
+
         SaveConditions();
     }
 

@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
     // TODO: expand with image
 
-    [SerializeField] private Text timerDisplay;
+    [SerializeField] private TextMeshProUGUI timerDisplay;
     private int remainingDuration;
 
     // read only variable
