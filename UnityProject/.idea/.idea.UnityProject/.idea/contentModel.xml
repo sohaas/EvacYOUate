@@ -12,6 +12,7 @@
             <e p="AudioData.cs" t="Include" />
             <e p="AudioManager.cs" t="Include" />
           </e>
+          <e p="CapturePosition.cs" t="Include" />
           <e p="ConditionData.cs" t="Include" />
           <e p="EventManager.cs" t="Include" />
           <e p="ExperimentManager.cs" t="Include" />
