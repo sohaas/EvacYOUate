@@ -118,6 +118,7 @@ public class RobotAnimation : MonoBehaviour
 
             if (_current >= targets.Length)
             {
+                // TODO: Delete for Build
                 UnityEditor.EditorApplication.isPlaying = false;
             }
         }
