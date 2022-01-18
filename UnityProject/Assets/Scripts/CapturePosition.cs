@@ -67,8 +67,8 @@ public class CapturePosition : MonoBehaviour
         
         Debug.Log(jsonString2Save);
         
-        // Save json file with positions as string
+        // Save json file with naming convention day-month-year_hour-minute-second.json
         File.WriteAllText(
-            Path.Combine("Assets", "Recordings", "recording1.json"), jsonString2Save); // TODO: NamingConvention
+            Path.Combine("Assets", "Recordings", System.DateTime.Now.ToString().Replace(" ", "_").Replace('.', '-').Replace(':', '-') + ".json"), jsonString2Save); // TODO: NamingConvention
     }
 }
