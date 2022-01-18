@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RobotTrigger : MonoBehaviour
 {
-    public bool audio;
+    [SerializeField] private bool audio;
 
     private void OnTriggerEnter(Collider other)
     {

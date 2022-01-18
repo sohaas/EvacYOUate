@@ -38,6 +38,12 @@ public class EventManager : MonoBehaviour
         completedInteraction?.Invoke();
     }
 
+    public event Action startedInteraction;
+    public void StartedInteraction()
+    {
+        startedInteraction?.Invoke();
+    }
+
     public event Action<int, int> complied;
     public void Complied(int id, int degree)
     {
