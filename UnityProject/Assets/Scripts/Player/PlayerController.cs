@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
-public class MovementController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    public bool showController = false;
+
     private ContinuousMove continuousMovement;
     private GameObject teleParent;
 
@@ -20,7 +23,24 @@ public class MovementController : MonoBehaviour
 
         // disable continous movement at start of experiment
         // continuousMovement.enabled = false;
+    }
 
+    // Update is called once per frame
+    void Update()
+    {
+        foreach (var hand in Player.instance.hands)
+        {
+            if (showController)
+            {
+                hand.ShowController();
+                hand.SetSkeletonRangeOfMotion(Valve.VR.EVRSkeletalMotionRange.WithController);
+            }
+            else
+            {
+                hand.HideController();
+                hand.SetSkeletonRangeOfMotion(Valve.VR.EVRSkeletalMotionRange.WithoutController);
+            }
+        }
     }
 
     void ToggleToTele()
@@ -48,4 +68,4 @@ public class MovementController : MonoBehaviour
         EventManager.instance.startedInteraction -= ToggleToContinuous;
         EventManager.instance.completedInteraction -= ToggleToTele;
     }
-    }
+}
