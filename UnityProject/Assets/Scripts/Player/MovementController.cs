@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-    public ContinuousMove continuousMovement;
+    private ContinuousMove continuousMovement;
     private GameObject teleParent;
 
     // Start is called before the first frame update
