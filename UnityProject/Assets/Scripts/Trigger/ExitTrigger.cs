@@ -10,6 +10,7 @@ public class ExitTrigger : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            CapturePosition.SaveJson();
             EventManager.instance.Exited(exitNr);
         }
     }
