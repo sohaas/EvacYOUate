@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/FamiliarizationScene.unity
     guid: 700ad57e911cb1046a69e1fdc866e55a
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/MainScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/EndScreenCorrect.unity
