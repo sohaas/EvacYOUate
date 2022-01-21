@@ -10,6 +10,12 @@ public class PlayerController : MonoBehaviour
     private ContinuousMove continuousMovement;
     private GameObject teleParent;
 
+    /**
+     * bool disabled
+     * disableMovement: disable when player on trigger AND robot is speaking
+     * enableMovement: enable when disabled == True AND robot finished speaking
+    */
+
     // Start is called before the first frame update
     void Start()
     {
