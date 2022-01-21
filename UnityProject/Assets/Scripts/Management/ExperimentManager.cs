@@ -7,26 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class ExperimentManager : MonoBehaviour
 {
-    /**
-     * COMPLIANCE:
-     * 
-     * instruction 1: stepping over
-     * problem: You have to step over the debris in order to leave the room
-     * trigger: Left/right side of the door frame
-     * 
-     * instruction 2: detour
-     * problem: partial compliance
-     * trigger: door frame vs. corridor
-     * 
-     * instruction 3: ducking
-     * trigger: depends on how the participant has to do it (actually ducking vs. 
-     * pressing  a button)
-     * 
-     * instruction 4: crawling 
-     * trigger: depends on how the participant has to do it (actually going down
-     * on all fours vs. pressing a button)
-     */
-
     // TODO: Outsource to utils file 
     public const int N_INSTRUCTIONS = 4;
     public const int N_PARTICIPANTS = 50;
