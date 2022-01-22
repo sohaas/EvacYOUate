@@ -70,7 +70,6 @@ public class AudioManager : MonoBehaviour
         }
         
         playing = false;
-        Debug.Log(instructions.lastPlayedIndex);
         if (instructions.lastPlayedIndex == 0)
         {
             EventManager.instance.PlayedInteraction(MovementType.TELE);

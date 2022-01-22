@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         teleParent = GameObject.Find("TeleportingParent");
 
         // movement disabled until introduction is finished
-        Invoke("DisableMovement", 2);
+        Invoke("DisableMovement", 0.7f);
     }
 
     // Update is called once per frame
@@ -81,7 +81,6 @@ public class PlayerController : MonoBehaviour
 
             Debug.Log("Disabled Movement");
         }
-        // alternatively create a onInteractionStarted function
         else
         {
             ToggleToContinuous();
@@ -89,11 +88,6 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    /**
-     * Wenn disabled && Robot stopped speaking
-     * Tele nach der Intro
-     * Continuos sonst
-     */
     void EnableMovement(MovementType move)
     {
         if (!active)
