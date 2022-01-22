@@ -32,9 +32,12 @@ public class ExperimentManager : MonoBehaviour
         EventManager.instance.complied += UpdateCompliance;
         EventManager.instance.exited += LoadEndScene;
 
+        // prepare condition dependent data
         LoadConditions();
         participant++;
         GetCondition();
+
+        // set timer
         timer.SetDuration(300).Begin();
     }
 

@@ -26,10 +26,10 @@ public class EventManager : MonoBehaviour
         enteredStopPoint?.Invoke(audio);
     }
 
-    public event Action playedInteraction;
-    public void PlayedInteraction()
+    public event Action<MovementType> playedInteraction;
+    public void PlayedInteraction(MovementType move)
     {
-        playedInteraction?.Invoke();
+        playedInteraction?.Invoke(move);
     }
 
     public event Action completedInteraction;

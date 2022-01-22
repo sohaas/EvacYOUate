@@ -128,6 +128,12 @@ public class RobotAnimation : MonoBehaviour
         _instructionRunning = false;
     }
 
+    // overload function to make event work
+    void Move(MovementType type)
+    {
+        _instructionRunning = false;
+    }
+
     void Pause(bool audio)
     {
         _instructionRunning = true;

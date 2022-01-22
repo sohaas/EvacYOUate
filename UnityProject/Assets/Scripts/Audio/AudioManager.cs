@@ -7,6 +7,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
+    public bool playing = true;
 
     // TODO: hide in inspector and assign at the start of the experiment
     public AudioData instructions;
@@ -18,7 +19,7 @@ public class AudioManager : MonoBehaviour
     // TODO: mode variable for conditions
     // TODO: add onDestroyMethod to unsubscribe
 
-    private void Awake()
+    void Awake()
     {
         instance = this;
         _audioSource = GetComponent<AudioSource>();
@@ -35,36 +36,52 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    private void PlayNextAudio()
+    void PlayNextAudio()
     {
 
         var clip = instructions.NextClip();
 
         if (clip)
         {
-            speakingIndicator.enabled = true; // indicate speaking with a light
+            // indicate speaking with a light (TODO: outsource)
+            speakingIndicator.enabled = true; 
             foreach (Light l in beaconLights)
             {
                 l.enabled = false;
             }
+
+            // play audio
             _audioSource.clip = clip;
             _audioSource.Play();
+            playing = true;
+
             Invoke("OnAudioPlayed", clip.length);
         }
  
     }
 
-    private void OnAudioPlayed()
+    void OnAudioPlayed()
     {
-        speakingIndicator.enabled = false; // disable speaking indication
+        // disable speaking indication (TODO: outsource)
+        speakingIndicator.enabled = false; 
         foreach (Light l in beaconLights)
         {
             l.enabled = true;
         }
-        EventManager.instance.PlayedInteraction();
+        
+        playing = false;
+        Debug.Log(instructions.lastPlayedIndex);
+        if (instructions.lastPlayedIndex == 0)
+        {
+            EventManager.instance.PlayedInteraction(MovementType.TELE);
+        }
+        else
+        {
+            EventManager.instance.PlayedInteraction(MovementType.CONTINUOUS);
+        }
     }
 
-    private void OnStopEnter(bool audio)
+    void OnStopEnter(bool audio)
     {
         if (audio)
         {
