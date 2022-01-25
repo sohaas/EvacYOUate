@@ -24,4 +24,16 @@ public class AudioData : ScriptableObject
             return null;
         }
     }
+
+    public AudioClip LastClip()
+    {
+        if (lastPlayedIndex < _clips.Count)
+        {
+            return _clips[lastPlayedIndex];
+        } 
+        else
+        {
+            return null;
+        }
+    }
 }

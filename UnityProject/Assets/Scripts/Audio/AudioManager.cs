@@ -16,9 +16,6 @@ public class AudioManager : MonoBehaviour
 
     private AudioSource _audioSource;
 
-    // TODO: mode variable for conditions
-    // TODO: add onDestroyMethod to unsubscribe
-
     void Awake()
     {
         instance = this;
@@ -28,19 +25,12 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         EventManager.instance.enteredStopPoint += OnStopEnter;
+        EventManager.instance.requestedRepeat += RepeatAudio;
         speakingIndicator.enabled = false; // no speaking indication in the beginning
     }
 
-    void Update()
+    bool Play(AudioClip clip)
     {
-
-    }
-
-    void PlayNextAudio()
-    {
-
-        var clip = instructions.NextClip();
-
         if (clip)
         {
             // indicate speaking with a light (TODO: outsource)
@@ -55,9 +45,26 @@ public class AudioManager : MonoBehaviour
             _audioSource.Play();
             playing = true;
 
+            return true;
+        }
+
+        return false;
+    }
+
+    void PlayNextAudio()
+    {
+        var clip = instructions.NextClip();
+
+        if (Play(clip))
+        {
             Invoke("OnAudioPlayed", clip.length);
         }
- 
+    }
+
+    void RepeatAudio()
+    {
+        var clip = instructions.LastClip();
+        Play(clip);
     }
 
     void OnAudioPlayed()
@@ -86,5 +93,11 @@ public class AudioManager : MonoBehaviour
         {
             PlayNextAudio();
         }
+    }
+
+    void OnDestroy()
+    {
+        EventManager.instance.enteredStopPoint -= OnStopEnter;
+        EventManager.instance.requestedRepeat -= RepeatAudio;
     }
 }

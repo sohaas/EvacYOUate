@@ -17,7 +17,6 @@ public class ExperimentManager : MonoBehaviour
     public int participant = 0;
     public static ExperimentManager instance;
 
-    private int[] _compliance = new int[N_INSTRUCTIONS];
     private int _condition;
 
     [SerializeField] Timer timer;
@@ -29,7 +28,6 @@ public class ExperimentManager : MonoBehaviour
 
     void Start()
     {
-        EventManager.instance.complied += UpdateCompliance;
         EventManager.instance.exited += LoadEndScene;
 
         // prepare condition dependent data
@@ -39,13 +37,6 @@ public class ExperimentManager : MonoBehaviour
 
         // set timer
         timer.SetDuration(300).Begin();
-    }
-
-
-    // Updates the compliance score when Player collides with trigger.
-    private void UpdateCompliance(int pos, int degree)
-    {
-        _compliance[pos] = degree;
     }
 
 
@@ -121,7 +112,6 @@ public class ExperimentManager : MonoBehaviour
 
     void OnDestroy()
     {
-        EventManager.instance.complied -= UpdateCompliance;
         EventManager.instance.exited -= LoadEndScene;
 
         SaveConditions();

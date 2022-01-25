@@ -44,10 +44,10 @@ public class EventManager : MonoBehaviour
         startedInteraction?.Invoke();
     }
 
-    public event Action<int, int> complied;
-    public void Complied(int id, int degree)
+    public event Action requestedRepeat;
+    public void RequestedRepeat()
     {
-        complied?.Invoke(id, degree);
+        requestedRepeat?.Invoke();
     }
 
     public event Action<int> exited;
