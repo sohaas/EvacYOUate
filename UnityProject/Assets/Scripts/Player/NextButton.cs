@@ -23,7 +23,7 @@ public class NextButton : MonoBehaviour
             // TODO switch scene (should only be possible in 1st scene after intro is finished)
 
             // Repeat audio
-            if (SceneManager.GetActiveScene().buildIndex == 1) 
+            if (SceneManager.GetActiveScene().buildIndex == 2) 
             {
                 EventManager.instance.RequestedRepeat();
             }
