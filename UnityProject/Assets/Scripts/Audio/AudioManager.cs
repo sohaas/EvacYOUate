@@ -63,8 +63,15 @@ public class AudioManager : MonoBehaviour
 
     void RepeatAudio()
     {
-        var clip = instructions.LastClip();
-        Play(clip);
+        if (!playing)
+        {
+            var clip = instructions.LastClip();
+            
+            if (Play(clip))
+            {
+                Invoke("OnAudioRepeated", clip.length);
+            }
+        }
     }
 
     void OnAudioPlayed()
@@ -85,6 +92,18 @@ public class AudioManager : MonoBehaviour
         {
             EventManager.instance.PlayedInteraction(MovementType.CONTINUOUS);
         }
+    }
+
+    void OnAudioRepeated()
+    {
+        // disable speaking indication (TODO: outsource)
+        speakingIndicator.enabled = false; 
+        foreach (Light l in beaconLights)
+        {
+            l.enabled = true;
+        }
+        
+        playing = false;
     }
 
     void OnStopEnter(bool audio)
