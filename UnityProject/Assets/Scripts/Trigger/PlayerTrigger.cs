@@ -19,6 +19,10 @@ public class PlayerTrigger : MonoBehaviour
             {
                 EventManager.instance.StartedInteraction();
             }
+            else if (this.gameObject.tag == "StandUp")
+            {
+                EventManager.instance.EnteredStopPoint(true);
+            }
 
             // disable current trigger
             this.GetComponent<BoxCollider>().enabled = false;

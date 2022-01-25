@@ -50,7 +50,7 @@ public class RobotAnimation : MonoBehaviour
             GetComponent<Animator>().enabled = true;
             
             // Check for the next position
-            if (transform.position != targets[_current].position)
+            if (_current < targets.Length && transform.position != targets[_current].position)
             {
                 // Determine which direction to rotate towards
                 Vector3 targetDirection = targets[_current].position - transform.position;
