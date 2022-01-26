@@ -9,27 +9,15 @@ public class AudioData : ScriptableObject
     private List<AudioClip> _clips;
 
     [System.NonSerialized]
-    public int lastPlayedIndex = -1;
+    private int _lastPlayedIndex = -1;
 
     public AudioClip NextClip()
     {
-        lastPlayedIndex++;
+        _lastPlayedIndex++;
 
-        if (lastPlayedIndex < _clips.Count)
+        if (_lastPlayedIndex < _clips.Count)
         {
-            return _clips[lastPlayedIndex];
-        } 
-        else
-        {
-            return null;
-        }
-    }
-
-    public AudioClip LastClip()
-    {
-        if (lastPlayedIndex < _clips.Count)
-        {
-            return _clips[lastPlayedIndex];
+            return _clips[_lastPlayedIndex];
         } 
         else
         {

@@ -123,13 +123,6 @@ public class RobotAnimation : MonoBehaviour
         _frameCounter += 1;
     }
 
-    // to be called by event with MovementType
-    void Move(MovementType type)
-    {
-        _instructionRunning = false;
-    } 
-
-    // to be called by event without MovementType
     void Move()
     {
         _instructionRunning = false;
