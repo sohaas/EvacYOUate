@@ -63,6 +63,11 @@ public class NextButton : MonoBehaviour
                 //TODO repeat audio
                 GameObject.Find("Repeat").SetActive(false);
                 GameObject.Find("Canvas4").transform.Find("Explore").gameObject.SetActive(true);
+                // Activate telepoints for free movement
+                GameObject.Find("GuidedTelepoints").SetActive(false);
+                GameObject.Find("TeleportingParent").transform.Find("FreeTelepoints").gameObject.SetActive(true);
+                // Disable trigger areas for movement toggle
+                GameObject.Find("Triggers").SetActive(false);
                 break;
             case 5:
                 // Switch from familiarization scene to transition scene
