@@ -9,13 +9,23 @@ public class PlayerTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && endInteraction) 
+        if (other.gameObject.tag == "Player")
         {
-            EventManager.instance.CompletedInteraction();
-        }
-        else if (other.gameObject.tag == "Player" && startInteraction)
-        {
-            EventManager.instance.StartedInteraction();
+            if (endInteraction) 
+            {
+                EventManager.instance.CompletedInteraction();
+            }
+            else if (startInteraction)
+            {
+                EventManager.instance.StartedInteraction();
+            }
+            else if (this.gameObject.tag == "StandUp")
+            {
+                EventManager.instance.EnteredStopPoint(true);
+            }
+
+            // disable current trigger
+            this.GetComponent<BoxCollider>().enabled = false;
         }
     }
 }

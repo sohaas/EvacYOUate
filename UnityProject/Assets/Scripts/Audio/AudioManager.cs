@@ -7,6 +7,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
+    public bool playing = true;
 
     // TODO: hide in inspector and assign at the start of the experiment
     public AudioData instructions;
@@ -15,10 +16,7 @@ public class AudioManager : MonoBehaviour
 
     private AudioSource _audioSource;
 
-    // TODO: mode variable for conditions
-    // TODO: add onDestroyMethod to unsubscribe
-
-    private void Awake()
+    void Awake()
     {
         instance = this;
         _audioSource = GetComponent<AudioSource>();
@@ -27,48 +25,98 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         EventManager.instance.enteredStopPoint += OnStopEnter;
+        EventManager.instance.requestedRepeat += RepeatAudio;
         speakingIndicator.enabled = false; // no speaking indication in the beginning
     }
 
-    void Update()
+    bool Play(AudioClip clip)
     {
-
-    }
-
-    private void PlayNextAudio()
-    {
-
-        var clip = instructions.NextClip();
-
         if (clip)
         {
-            speakingIndicator.enabled = true; // indicate speaking with a light
+            // indicate speaking with a light (TODO: outsource)
+            speakingIndicator.enabled = true; 
             foreach (Light l in beaconLights)
             {
                 l.enabled = false;
             }
+
+            // play audio
             _audioSource.clip = clip;
             _audioSource.Play();
-            Invoke("OnAudioPlayed", clip.length);
+            playing = true;
+
+            return true;
         }
- 
+
+        return false;
     }
 
-    private void OnAudioPlayed()
+    void PlayNextAudio()
     {
-        speakingIndicator.enabled = false; // disable speaking indication
+        var clip = instructions.NextClip();
+
+        if (Play(clip))
+        {
+            Invoke("OnAudioPlayed", clip.length);
+        }
+    }
+
+    void RepeatAudio()
+    {
+        if (!playing)
+        {
+            var clip = instructions.LastClip();
+            
+            if (Play(clip))
+            {
+                Invoke("OnAudioRepeated", clip.length);
+            }
+        }
+    }
+
+    void OnAudioPlayed()
+    {
+        // disable speaking indication (TODO: outsource)
+        speakingIndicator.enabled = false; 
         foreach (Light l in beaconLights)
         {
             l.enabled = true;
         }
-        EventManager.instance.PlayedInteraction();
+        
+        playing = false;
+        if (instructions.lastPlayedIndex == 0)
+        {
+            EventManager.instance.PlayedInteraction(MovementType.TELE);
+        }
+        else
+        {
+            EventManager.instance.PlayedInteraction(MovementType.CONTINUOUS);
+        }
     }
 
-    private void OnStopEnter(bool audio)
+    void OnAudioRepeated()
+    {
+        // disable speaking indication (TODO: outsource)
+        speakingIndicator.enabled = false; 
+        foreach (Light l in beaconLights)
+        {
+            l.enabled = true;
+        }
+        
+        playing = false;
+    }
+
+    void OnStopEnter(bool audio)
     {
         if (audio)
         {
             PlayNextAudio();
         }
+    }
+
+    void OnDestroy()
+    {
+        EventManager.instance.enteredStopPoint -= OnStopEnter;
+        EventManager.instance.requestedRepeat -= RepeatAudio;
     }
 }
