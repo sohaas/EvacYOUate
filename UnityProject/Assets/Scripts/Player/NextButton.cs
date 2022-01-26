@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Valve.VR;
 
 public class NextButton : MonoBehaviour
@@ -20,6 +21,12 @@ public class NextButton : MonoBehaviour
         if (input.GetStateDown(SteamVR_Input_Sources.Any))
         {
             // TODO switch scene (should only be possible in 1st scene after intro is finished)
+
+            // Repeat audio
+            if (SceneManager.GetActiveScene().buildIndex == 2) 
+            {
+                EventManager.instance.RequestedRepeat();
+            }
         }
     }
 }
