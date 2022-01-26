@@ -7,7 +7,6 @@ TagManager:
   - Robot
   - projectile
   - FxTemporaire
-  - StandUp
   layers:
   - Default
   - TransparentFX
@@ -25,9 +24,9 @@ TagManager:
   - BeaconBlue
   - Gravel
   - Walls2BlockGravel
+  - Ambulance
   - Player
-  - 
-  - 
+  - CrackedWallGravel
   - 
   - 
   - 

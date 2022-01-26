@@ -26,10 +26,10 @@ public class EventManager : MonoBehaviour
         enteredStopPoint?.Invoke(audio);
     }
 
-    public event Action<MovementType> playedInteraction;
-    public void PlayedInteraction(MovementType move)
+    public event Action playedInteraction;
+    public void PlayedInteraction()
     {
-        playedInteraction?.Invoke(move);
+        playedInteraction?.Invoke();
     }
 
     public event Action completedInteraction;
@@ -44,10 +44,10 @@ public class EventManager : MonoBehaviour
         startedInteraction?.Invoke();
     }
 
-    public event Action requestedRepeat;
-    public void RequestedRepeat()
+    public event Action<int, int> complied;
+    public void Complied(int id, int degree)
     {
-        requestedRepeat?.Invoke();
+        complied?.Invoke(id, degree);
     }
 
     public event Action<int> exited;
