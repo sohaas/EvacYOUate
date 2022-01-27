@@ -21,7 +21,7 @@ public class NextButton : MonoBehaviour
         if (input.GetStateDown(SteamVR_Input_Sources.Any))
         {
             // Display correct text on canvas
-            if (SceneManager.GetActiveScene().buildIndex == 1) 
+            if (SceneManager.GetActiveScene().buildIndex == 0)
             {
                 HandleUI(counter);
                 counter++;
@@ -32,9 +32,14 @@ public class NextButton : MonoBehaviour
                 SceneManager.LoadScene(2, LoadSceneMode.Single);
             }
             // Repeat audio in main scene
-            else if (SceneManager.GetActiveScene().buildIndex == 2) 
+            else if (SceneManager.GetActiveScene().buildIndex == 2 && !GameObject.Find("TimerUI").active)
             {
                 EventManager.instance.RequestedRepeat();
+            }
+            // Continue after timer is up in main scene
+            else if (SceneManager.GetActiveScene().buildIndex == 2 && GameObject.Find("TimerUI").active) 
+            {
+                GameObject.Find("TimerUI").SetActive(false);
             }
         }
     }
