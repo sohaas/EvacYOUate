@@ -63,6 +63,10 @@ public class NextButton : MonoBehaviour
                 //TODO repeat audio
                 GameObject.Find("Repeat").SetActive(false);
                 GameObject.Find("Canvas4").transform.Find("Explore").gameObject.SetActive(true);
+                // Deactivate other canvases
+                GameObject.Find("Canvas1").SetActive(false);
+                GameObject.Find("Canvas2").SetActive(false);
+                GameObject.Find("Canvas3").SetActive(false);
                 // Activate telepoints for free movement
                 GameObject.Find("GuidedTelepoints").SetActive(false);
                 GameObject.Find("TeleportingParent").transform.Find("FreeTelepoints").gameObject.SetActive(true);
