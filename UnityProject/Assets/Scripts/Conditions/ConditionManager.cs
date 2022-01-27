@@ -24,10 +24,10 @@ public class ConditionManager : MonoBehaviour
         LoadConditions();
         participant++;
         GetCondition();
+        SceneManagement.condition = _condition;
 
-         _audioSource = GameObject.Find("Audio").GetComponent<AudioSource>();
-
-        SceneManagement.condition = _condition;      
+         _audioSource = GameObject.Find("Audio").GetComponent<AudioSource>();      
+         EventManager.instance.testAudio += PlayTestAudio;
     }
 
     // Assigns a random experiment condition.
@@ -91,7 +91,7 @@ public class ConditionManager : MonoBehaviour
         stream.Close();
     }
 
-    public bool PlayTestAudio()
+    void PlayTestAudio()
     {
         var clip = testAudios.Clip(_condition / 2);
 
@@ -99,10 +99,7 @@ public class ConditionManager : MonoBehaviour
         {
             _audioSource.clip = clip;
             _audioSource.Play();
-            return true;
         }
-
-        return false;
     }
 
     void OnDestroy()

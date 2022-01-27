@@ -61,4 +61,10 @@ public class EventManager : MonoBehaviour
     {
         timeIsUp?.Invoke();
     }
+
+    public event Action testAudio;
+    public void TestAudio()
+    {
+        testAudio?.Invoke();
+    }
 }
