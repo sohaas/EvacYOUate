@@ -21,18 +21,18 @@ public class NextButton : MonoBehaviour
         if (input.GetStateDown(SteamVR_Input_Sources.Any))
         {
             // Display correct text on canvas
-            if (SceneManager.GetActiveScene().buildIndex == 1) 
+            if (SceneManager.GetActiveScene().buildIndex == 0)
             {
                 HandleUI(counter);
                 counter++;
             }
             // Switch from transition scene to main scene
-            else if (SceneManager.GetActiveScene().buildIndex == 1) 
+            else if (SceneManager.GetActiveScene().buildIndex == 1)
             {
                 SceneManager.LoadScene(2, LoadSceneMode.Single);
             }
             // Repeat audio in main scene
-            else if (SceneManager.GetActiveScene().buildIndex == 2) 
+            else if (SceneManager.GetActiveScene().buildIndex == 2)
             {
                 EventManager.instance.RequestedRepeat();
             }
