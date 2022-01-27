@@ -15,6 +15,9 @@ public class ConditionManager : MonoBehaviour
     public const int N_PARTICIPANTS = 50;
     private const string PATH = "./Assets/Serialized/conditions.bin";
 
+    [SerializeField] private AudioData testAudios;
+    private AudioSource _audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +25,9 @@ public class ConditionManager : MonoBehaviour
         participant++;
         GetCondition();
 
-        SceneManagement.condition = _condition;
-        
+         _audioSource = GameObject.Find("Audio").GetComponent<AudioSource>();
+
+        SceneManagement.condition = _condition;      
     }
 
     // Assigns a random experiment condition.
@@ -85,6 +89,20 @@ public class ConditionManager : MonoBehaviour
 
         formatter.Serialize(stream, data);
         stream.Close();
+    }
+
+    public bool PlayTestAudio()
+    {
+        var clip = testAudios.Clip(_condition / 2);
+
+        if (clip)
+        {
+            _audioSource.clip = clip;
+            _audioSource.Play();
+            return true;
+        }
+
+        return false;
     }
 
     void OnDestroy()
