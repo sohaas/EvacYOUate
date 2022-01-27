@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.21912122, g: 0.2709994, b: 0.32094637, a: 1}
+  m_IndirectSpecularColor: {r: 0.21837696, g: 0.27221, b: 0.3243903, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21102,8 +21102,6 @@ GameObject:
   - component: {fileID: 577528353}
   - component: {fileID: 577528357}
   - component: {fileID: 577528356}
-  - component: {fileID: 577528355}
-  - component: {fileID: 577528354}
   m_Layer: 0
   m_Name: Wall_Decoration_Art_Zebra
   m_TagString: Untagged
@@ -21125,35 +21123,6 @@ Transform:
   m_Father: {fileID: 333926528}
   m_RootOrder: 97
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &577528354
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577528352}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0003309, y: 0.6912523, z: 0.03648794}
-  m_Center: {x: -0.00000014923135, y: 0.34562603, z: 0.01824396}
---- !u!54 &577528355
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577528352}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!23 &577528356
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -75191,8 +75160,6 @@ GameObject:
   - component: {fileID: 2038822716}
   - component: {fileID: 2038822720}
   - component: {fileID: 2038822719}
-  - component: {fileID: 2038822718}
-  - component: {fileID: 2038822717}
   m_Layer: 0
   m_Name: Painting1
   m_TagString: Untagged
@@ -75218,36 +75185,6 @@ Transform:
   m_Father: {fileID: 333926528}
   m_RootOrder: 95
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &2038822717
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2038822715}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &2038822718
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2038822715}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!23 &2038822719
 MeshRenderer:
   m_ObjectHideFlags: 0
