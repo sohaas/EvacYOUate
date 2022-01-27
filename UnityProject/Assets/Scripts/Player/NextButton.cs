@@ -56,11 +56,12 @@ public class NextButton : MonoBehaviour
                 GameObject.Find("Canvas3").transform.Find("Crawl").gameObject.SetActive(true);
                 break;
             case 3:
+                ConditionManager.PlayTestAudio();
                 GameObject.Find("Audio").SetActive(false);
                 GameObject.Find("Canvas4").transform.Find("Repeat").gameObject.SetActive(true);
                 break;
             case 4:
-                //TODO repeat audio
+                ConditionManager.PlayTestAudio();
                 GameObject.Find("Repeat").SetActive(false);
                 GameObject.Find("Canvas4").transform.Find("Explore").gameObject.SetActive(true);
                 // Deactivate other canvases

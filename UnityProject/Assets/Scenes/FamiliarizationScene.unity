@@ -2601,9 +2601,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next, some audio will be played. If you can clearly hear what is being
-    said, please press the button on the back of the controller. If not, please inform
-    the person conducting the experiment.
+  m_text: Please press the button on the back of the controller to play some test
+    audio. If you cannot clearly hear what is being said, please inform the person
+    conducting the experiment.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -81738,6 +81738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb6d61a5f43eb444a581c0588787c86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showController: 0
 --- !u!1 &4976197969100339488
 GameObject:
   m_ObjectHideFlags: 0
