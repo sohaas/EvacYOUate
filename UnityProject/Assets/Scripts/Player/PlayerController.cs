@@ -21,8 +21,6 @@ public class PlayerController : MonoBehaviour
         EventManager.instance.startedInteraction += DisableMovement;
         EventManager.instance.playedInteraction += EnableMovement;
         EventManager.instance.completedInteraction += ToggleToTele;
-        EventManager.instance.timeIsUp += DisableMovement;
-        EventManager.instance.afterShock += EnableMovement;
 
         // Get components and objects needed for en- and disabling
         continuousMovement = GetComponent<ContinuousMove>();
@@ -72,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
     void DisableMovement()
     {
-        if (AudioManager.instance.playing || started)
+        if ((AudioManager.instance.playing || started) && active)
         {
             continuousMovement.enabled = false;
             GameObject.Find("Teleporting").SetActive(false);

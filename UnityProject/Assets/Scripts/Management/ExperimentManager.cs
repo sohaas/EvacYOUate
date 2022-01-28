@@ -11,6 +11,8 @@ public class ExperimentManager : MonoBehaviour
     public AudioData[] instructionAudios;
     public AudioData testAudio;
 
+    private GameObject timerUI;
+
     [SerializeField] Timer timer;
 
     // Single instance of manager
@@ -28,7 +30,7 @@ public class ExperimentManager : MonoBehaviour
         _condition = SceneManagement.condition;
         AudioManager.instance.instructions = instructionAudios[_condition];
 
-        timer.SetDuration(300).Begin();
+        timer.SetDuration(20).Begin();
 
         EventManager.instance.exited += LoadScene;
         EventManager.instance.timeIsUp += ShowCanvas;
@@ -37,12 +39,14 @@ public class ExperimentManager : MonoBehaviour
 
     void ShowCanvas()
     {
-        GameObject.Find("VRCamera").transform.Find("TimerUI").gameObject.SetActive(true);
+        // GameObject.Find("VRCamera").transform.Find("TimerUI").gameObject.SetActive(true);
+        Debug.Log("Show Canvas");
     }
 
     void HideCanvas(MovementType move)
     {
-        GameObject.Find("TimerUI").gameObject.SetActive(false);
+        // GameObject.Find("TimerUI").gameObject.SetActive(false);
+        Debug.Log("Hide Canvas");
     }
 
     void LoadScene(int sceneNr)

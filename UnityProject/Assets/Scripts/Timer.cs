@@ -56,6 +56,7 @@ public class Timer : MonoBehaviour
     public void End()
     {
         ResetTimer();
+        EventManager.instance.TimeIsUp();
     }
 
     private void OnDestroy()
