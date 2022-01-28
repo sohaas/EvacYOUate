@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
         EventManager.instance.startedInteraction += DisableMovement;
         EventManager.instance.playedInteraction += EnableMovement;
         EventManager.instance.completedInteraction += ToggleToTele;
+        EventManager.instance.timeIsUp += DisableMovement;
+        EventManager.instance.afterShock += EnableMovement;
 
         // Get components and objects needed for en- and disabling
         continuousMovement = GetComponent<ContinuousMove>();

@@ -11,10 +11,11 @@ public class AudioManager : MonoBehaviour
 
     // TODO: hide in inspector and assign at the start of the experiment
     public AudioData instructions;
+    [SerializeField] private AudioData aftershockAudios;
+    private AudioSource _audioSource;
+    
     public Light speakingIndicator;
     public Light[] beaconLights;
-
-    private AudioSource _audioSource;
 
     void Awake()
     {
@@ -26,6 +27,8 @@ public class AudioManager : MonoBehaviour
     {
         EventManager.instance.enteredStopPoint += OnStopEnter;
         EventManager.instance.requestedRepeat += RepeatAudio;
+        EventManager.instance.timeIsUp += PlayAftershock;
+        
         speakingIndicator.enabled = false; // no speaking indication in the beginning
     }
 
@@ -74,6 +77,22 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    void PlayAftershock()
+    {
+        var clip = aftershockAudios.Clip(ExperimentManager._condition / 2);
+        if (clip)
+        {
+            _audioSource.clip = clip;
+            _audioSource.Play();
+            
+            Invoke("OnAftershockOver", clip.length);
+        }
+    }
+
+    void OnAftershockOver()
+    {
+        EventManager.instance.AfterShock(MovementType.TELE);
+    }
     void OnAudioPlayed()
     {
         // disable speaking indication (TODO: outsource)
@@ -118,5 +137,6 @@ public class AudioManager : MonoBehaviour
     {
         EventManager.instance.enteredStopPoint -= OnStopEnter;
         EventManager.instance.requestedRepeat -= RepeatAudio;
+        EventManager.instance.timeIsUp -= PlayAftershock;
     }
 }

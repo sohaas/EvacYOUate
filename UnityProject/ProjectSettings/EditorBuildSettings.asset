@@ -10,16 +10,16 @@ EditorBuildSettings:
     guid: 700ad57e911cb1046a69e1fdc866e55a
   - enabled: 1
     path: Assets/Scenes/TransitionScene.unity
-    guid: 01cf077b3b7740d4b92cadca7c0621ca
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/EndScreenCorrect.unity
-    guid: 5b2c8eeb7b907d24fbd83fc984779f35
+    path: Assets/Scenes/SampleScene.unity
+    guid: 4720cffb2afd406489f491d441c7b1b6
   - enabled: 1
-    path: Assets/Scenes/EndScreenFalse.unity
-    guid: 8f4160be24e7b9043becd91f21d27e12
+    path: Assets/Scenes/CorrectExit.unity
+    guid: 727942cd0b8d6c44b81814b338efbb36
+  - enabled: 1
+    path: Assets/Scenes/WrongExit.unity
+    guid: a9483f7e5950978439553237fcf115f9
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: f2846c0220339df45a4aef495501a190,
       type: 2}

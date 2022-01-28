@@ -21,6 +21,8 @@ public class PlayerFamiliarize : MonoBehaviour
         // Get components and objects needed for en- and disabling
         continuousMovement = GetComponent<ContinuousMove>();
         teleParent = GameObject.Find("TeleportingParent");
+        
+        //Invoke("ToggleToTele", 0.1f);
     }
 
     // Update is called once per frame

@@ -6,12 +6,16 @@ using Valve.VR;
 
 public class NextButton : MonoBehaviour
 {
+    public static bool buttonListener;
     public SteamVR_Action_Boolean input;
+    private GameObject teleParent;
     private int counter;
 
     // Start is called before the first frame update
     void Start()
     {
+        teleParent = GameObject.Find("TeleportingParent");
+        buttonListener = true;
         counter = 0;
     }
 
@@ -20,6 +24,7 @@ public class NextButton : MonoBehaviour
     {
         if (input.GetStateDown(SteamVR_Input_Sources.Any))
         {
+            Debug.Log("Button pressed");
             // Display correct text on canvas
             if (SceneManager.GetActiveScene().buildIndex == 0)
             {
@@ -36,7 +41,15 @@ public class NextButton : MonoBehaviour
             {
                 EventManager.instance.RequestedRepeat();
             }
+
+            buttonListener = false;
+            Invoke("ActivateButton", 5);
         }
+    }
+
+    void ActivateButton()
+    {
+        buttonListener = true;
     }
 
     private void HandleUI(int counter)
@@ -50,6 +63,8 @@ public class NextButton : MonoBehaviour
             case 1:
                 GameObject.Find("Turn").SetActive(false);
                 GameObject.Find("Canvas1").transform.Find("Teleport").gameObject.SetActive(true);
+                EventManager.instance.CompletedInteraction();
+                buttonListener = false;
                 break;
             case 2:
                 GameObject.Find("Duck").SetActive(false);
@@ -71,8 +86,6 @@ public class NextButton : MonoBehaviour
                 // Activate telepoints for free movement
                 GameObject.Find("GuidedTelepoints").SetActive(false);
                 GameObject.Find("TeleportingParent").transform.Find("FreeTelepoints").gameObject.SetActive(true);
-                // Disable trigger areas for movement toggle
-                GameObject.Find("Triggers").SetActive(false);
                 break;
             case 5:
                 // Switch from familiarization scene to transition scene

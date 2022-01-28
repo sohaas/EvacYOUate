@@ -26,7 +26,7 @@ public class ConditionManager : MonoBehaviour
         GetCondition();
         SceneManagement.condition = _condition;
 
-         _audioSource = GameObject.Find("Audio").GetComponent<AudioSource>();      
+         _audioSource = GameObject.Find("Canvas4").GetComponent<AudioSource>();      
          EventManager.instance.testAudio += PlayTestAudio;
     }
 

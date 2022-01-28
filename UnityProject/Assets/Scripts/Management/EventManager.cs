@@ -62,6 +62,12 @@ public class EventManager : MonoBehaviour
         timeIsUp?.Invoke();
     }
 
+    public event Action<MovementType> afterShock; 
+    public void AfterShock(MovementType move)
+    {
+        afterShock?.Invoke(move);
+    }
+
     public event Action testAudio;
     public void TestAudio()
     {

@@ -8,10 +8,13 @@ public class ExitTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("EXIT");
+        
         if (other.gameObject.tag == "Player")
         {
-            CapturePosition.SaveJson();
             EventManager.instance.Exited(exitNr);
+            CapturePosition.SaveJson();
         }
+        
     }
 }
