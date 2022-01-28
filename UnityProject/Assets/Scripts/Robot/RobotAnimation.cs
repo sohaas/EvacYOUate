@@ -36,8 +36,10 @@ public class RobotAnimation : MonoBehaviour
         _instructionRunning = false;
 
         EventManager.instance.enteredStopPoint += Pause;
+        EventManager.instance.timeIsUp += Pause;
         EventManager.instance.playedInteraction += Move;
         EventManager.instance.completedInteraction += Move;
+        EventManager.instance.afterShock += Move;
     }
 
     // Update is called once per frame
@@ -135,7 +137,14 @@ public class RobotAnimation : MonoBehaviour
         _instructionRunning = false;
     }
 
+    // to be called by event with bool
     void Pause(bool audio)
+    {
+        _instructionRunning = true;
+    }
+
+    // to be called by event without bool
+    void Pause()
     {
         _instructionRunning = true;
     }

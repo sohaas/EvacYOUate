@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Aftershock
   m_EditorClassIdentifier: 
   _clips:
-  - {fileID: 8300000, guid: 7a07c3a63c0ddf5428c95df3f371391f, type: 3}
-  - {fileID: 8300000, guid: e9dd7160e60403148ab498b9164178a0, type: 3}
+  - {fileID: 8300000, guid: b7a2c4f6e9befd742bc270d3a6b11ee3, type: 3}
+  - {fileID: 8300000, guid: 7208b3ef5003cd44cbd1c2550fc7d7b9, type: 3}

@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour
     // TODO: expand with image
 
     [SerializeField] private TextMeshProUGUI timerDisplay;
+    [SerializeField] private bool triggerEvent;
     private int remainingDuration;
 
     // read only variable
@@ -56,7 +57,11 @@ public class Timer : MonoBehaviour
     public void End()
     {
         ResetTimer();
-        EventManager.instance.TimeIsUp();
+
+        if (triggerEvent)
+        {
+            EventManager.instance.TimeIsUp();
+        }
     }
 
     private void OnDestroy()

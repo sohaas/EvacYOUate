@@ -7,13 +7,13 @@ public class ExperimentManager : MonoBehaviour
 {
     public static int _condition;
 
-    // TODO: do they need to be public
     public AudioData[] instructionAudios;
-    public AudioData testAudio;
+    // public AudioData testAudio;
 
     private GameObject timerUI;
 
-    [SerializeField] Timer timer;
+    [SerializeField] Timer timerFront;
+    [SerializeField] Timer timerBack;
 
     // Single instance of manager
     public static ExperimentManager instance;
@@ -26,11 +26,11 @@ public class ExperimentManager : MonoBehaviour
 
     void Start()
     {
-        // TODO: check if that works without Event Manager in the scene
         _condition = SceneManagement.condition;
         AudioManager.instance.instructions = instructionAudios[_condition];
 
-        timer.SetDuration(20).Begin();
+        timerFront.SetDuration(5).Begin();
+        timerBack.SetDuration(5).Begin();
 
         EventManager.instance.exited += LoadScene;
         EventManager.instance.timeIsUp += ShowCanvas;
