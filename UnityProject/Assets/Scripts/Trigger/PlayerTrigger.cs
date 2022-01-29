@@ -6,6 +6,7 @@ public class PlayerTrigger : MonoBehaviour
 {
     [SerializeField] bool endInteraction;
     [SerializeField] bool startInteraction;
+    [SerializeField] GameObject stopPoint;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,6 +27,12 @@ public class PlayerTrigger : MonoBehaviour
 
             // disable current trigger
             this.GetComponent<BoxCollider>().enabled = false;
+
+            // disable robot trigger (if there)
+            if (stopPoint != null)
+            {
+                stopPoint.GetComponent<BoxCollider>().enabled = false;
+            }
         }
     }
 }
