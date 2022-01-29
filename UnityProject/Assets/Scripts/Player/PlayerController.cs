@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
     void DisableMovement()
     {
-        if ((AudioManager.instance.playing || started) && active)
+        if (AudioManager.instance.playing || started)
         {
             continuousMovement.enabled = false;
             GameObject.Find("Teleporting").SetActive(false);
