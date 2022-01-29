@@ -12,7 +12,7 @@ public class ConditionManager : MonoBehaviour
 
     // TODO: Outsource to utils file 
     public const int N_INSTRUCTIONS = 4;
-    public const int N_PARTICIPANTS = 50;
+    public const int N_PARTICIPANTS = 8;
     private const string PATH = "./Assets/Serialized/conditions.bin";
 
     [SerializeField] private AudioData testAudios;
