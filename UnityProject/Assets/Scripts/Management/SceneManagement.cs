@@ -10,9 +10,7 @@ public class SceneManagement : MonoBehaviour
     public static SceneManagement instance;
 
     // data that needs to be accessible across scenes
-
-    // TODO: remove initialization!!
-    public static int condition = 0;
+    public static int condition;
 
     void Awake()
     {
