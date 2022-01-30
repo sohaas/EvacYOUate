@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.22183387, g: 0.27509165, b: 0.3256793, a: 1}
+  m_IndirectSpecularColor: {r: 0.21837696, g: 0.27221, b: 0.3243903, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2971,11 +2971,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You managed to evacuate without getting hurt, great job!
+  m_text: 'You managed to evacuate the building in time and without getting hurt,
+    great job!
 
 
-    You can
-    take off the headset now and go get your cookie.'
+    You can take off the headset now.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

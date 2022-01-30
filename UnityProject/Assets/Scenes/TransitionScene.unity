@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.22183387, g: 0.27509165, b: 0.3256793, a: 1}
+  m_IndirectSpecularColor: {r: 0.21837696, g: 0.27221, b: 0.3243903, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2971,10 +2971,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You were in your home when suddenly, a major earthquake struck! Now only
+  m_text: 'You were in your home when suddenly, a major earthquake struck! Now, only
     very little time remains before an aftershock will follow and the building might
     collapse. You need to evacuate as fast as possible! But also be aware of the
-    possible dangers and try not to get hurt.
+    possible dangers and try to not get hurt.
 
 
     If you are ready to start, press
