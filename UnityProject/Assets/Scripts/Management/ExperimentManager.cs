@@ -29,8 +29,8 @@ public class ExperimentManager : MonoBehaviour
         _condition = SceneManagement.condition;
         AudioManager.instance.instructions = instructionAudios[_condition];
 
-        timerFront.SetDuration(300).Begin();
-        timerBack.SetDuration(300).Begin();
+        timerFront.SetDuration(360).Begin();
+        timerBack.SetDuration(360).Begin();
 
         EventManager.instance.exited += LoadScene;
         EventManager.instance.timeIsUp += ShowCanvas;
