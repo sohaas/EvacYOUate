@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.22276182, g: 0.2785374, b: 0.3314456, a: 1}
+  m_IndirectSpecularColor: {r: 0.21837696, g: 0.27221, b: 0.3243903, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2602,8 +2602,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Please press the button on the back of the controller to play some test
-    audio. If you cannot clearly hear what is being said, please inform the person
-    conducting the experiment.
+    audio. If you cannot clearly hear what is being said, please inform the instructors.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16052,8 +16051,8 @@ MonoBehaviour:
     If you want to
     keep exploring the house, feel free to do so.
 
-    Otherwise, press the button
-    on the back of the controller to continue.'
+    Once you are finished, press
+    the button on the back of the controller to get to the main experiment.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -42025,8 +42024,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: To teleport, hold down the touchpad and aim the controller at a teleportation
-    point of your choice. When the arc turns green, release to teleport to that destination.
+  m_text: To teleport, hold down the center of the touchpad and aim the controller
+    at a teleportation point of your choice. When the arc turns green, release to
+    teleport to that destination.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -62078,7 +62078,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'At certain points in the experiment, you cannot teleport.
+  m_text: 'At certain points in the experiment, you are not able to teleport.
 
     Instead,
     you can walk by placing one finger on the touchpad and moving it without having
