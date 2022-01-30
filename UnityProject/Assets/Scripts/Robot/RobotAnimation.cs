@@ -80,7 +80,7 @@ public class RobotAnimation : MonoBehaviour
                         _movementSpeed * Time.deltaTime);
 
                     // Check if the position of robot and target are approximately equal
-                    if (Vector3.Distance(transform.position, targets[_current].position) < 0.001F)
+                    if (Vector3.Distance(transform.position, targets[_current].position) < 0.002F) // TODO: 0.001F start value
                     {
                         // set the robot to this position
                         transform.position = targets[_current].position;
