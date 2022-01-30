@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.22183387, g: 0.27509165, b: 0.3256793, a: 1}
+  m_IndirectSpecularColor: {r: 0.22276182, g: 0.2785374, b: 0.3314456, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2971,14 +2971,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You managed to evacuate the house., but sadly you got hurt by using an
+  m_text: 'You managed to evacuate the house, but sadly you got hurt by using an
     instable exit way.
 
     Still, you did a great job!
 
 
     You can take off the
-    headset now and get your comfort cookie.'
+    headset now and go get your comfort cookie.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.22183387, g: 0.27509165, b: 0.3256793, a: 1}
+  m_IndirectSpecularColor: {r: 0.22276182, g: 0.2785374, b: 0.3314456, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -18279,6 +18279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endInteraction: 0
   startInteraction: 1
+  stopPoint: {fileID: 0}
 --- !u!1 &484987788
 GameObject:
   m_ObjectHideFlags: 0
@@ -55405,14 +55406,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'To turn, press down on the left/right side of the touch pad on either
-    of the controllers.
+  m_text: 'To turn, press down on the left/right side of the touch pad on the controller.
 
-    You can also look around by turning your head in real
-    life.
+    You
+    can also look around by turning your head in real life.
 
 
-    Press the button on the back of the controller to continue.'
+    Press the button
+    on the back of the controller to continue.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -73643,6 +73644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endInteraction: 1
   startInteraction: 0
+  stopPoint: {fileID: 0}
 --- !u!1 &2005592036
 GameObject:
   m_ObjectHideFlags: 0
@@ -78121,7 +78123,7 @@ MonoBehaviour:
 
 
     Press
-    the button on the back of either of the controllers to start.'
+    the button on the back of the controller to start.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
